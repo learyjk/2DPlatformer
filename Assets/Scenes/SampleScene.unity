@@ -327,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286347684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.97, y: -5.8, z: 0}
+  m_LocalPosition: {x: 4.97, y: -5.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -597,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454810352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.28473, y: -6.002203, z: 0}
+  m_LocalPosition: {x: -4.28473, y: -5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -706,7 +706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500297236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18413746, y: -6, z: 0}
+  m_LocalPosition: {x: 0.18413746, y: -5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1246,7 +1246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578931146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.251, y: -5.994, z: 0}
+  m_LocalPosition: {x: 9.251, y: -5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1598,6 +1598,12 @@ PrefabInstance:
       propertyPath: effectSpawnRate
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5362481014600140552, guid: d636d4c748093485cbcf0d3687d84ea7,
+        type: 3}
+      propertyPath: MuzzleFlashPrefab
+      value: 
+      objectReference: {fileID: 6013732107175127440, guid: b82d7e78caac843088292a203d7803de,
+        type: 3}
     - target: {fileID: 5362481014600140555, guid: d636d4c748093485cbcf0d3687d84ea7,
         type: 3}
       propertyPath: m_LocalPosition.x
