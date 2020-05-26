@@ -81,7 +81,6 @@ public class Weapon : MonoBehaviour
         LineRenderer lr = trail.GetComponent<LineRenderer>();
 
         if (lr != null) {
-            //SET POSITIONS
             lr.SetPosition(0, firePoint.position);
             lr.SetPosition(1, hitPos);
         }
