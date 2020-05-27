@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour
             searchingForPlayer = false;
             target = sResult.transform;
             yield break;
-            StartCoroutine(UpdatePath());
+            //StartCoroutine(UpdatePath());
         }
     }
 
