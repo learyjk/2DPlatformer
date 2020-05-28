@@ -17,7 +17,15 @@ public class GameMaster : MonoBehaviour
     public int spawnDelay = 2;
     public Transform spawnPrefab;
 
-    public void RespawnPlayer() {
+    public CameraShake cameraShake;
+
+    void Start() {
+        if (cameraShake == null) {
+            Debug.LogError("No Camera shake refrenced.");
+        }
+    }
+    
+    public void _RespawnPlayer() {
         GetComponent<AudioSource>().Play();
         //yield return new WaitForSeconds(spawnDelay); //also must change method return type to IEnumerator if used
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -27,10 +35,18 @@ public class GameMaster : MonoBehaviour
 
     public static void KillPlayer(Player player) {
         Destroy(player.gameObject);
-        gm.RespawnPlayer();
+        gm._RespawnPlayer();
     }
 
     public static void KillEnemy(Enemy enemy) {
-        Destroy(enemy.gameObject);
+        gm._KillEnemy(enemy);
+    }
+
+    public void _KillEnemy(Enemy _enemy)
+    {
+        GameObject clone = Instantiate(_enemy.deathParticles, _enemy.transform.position, Quaternion.identity).gameObject;
+        Destroy(clone, 5f);
+        cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
+        Destroy(_enemy.gameObject);
     }
 }
