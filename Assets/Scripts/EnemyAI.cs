@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 	
 	public void OnPathComplete (Path p) {
-		Debug.Log ("We got a path. Did it have an error? " + p.error);
+		//Debug.Log ("We got a path. Did it have an error? " + p.error);
 		if (!p.error) {
 			path = p;
 			currentWaypoint = 0;
@@ -85,20 +85,19 @@ public class EnemyAI : MonoBehaviour {
 			if (pathIsEnded)
 				return;
 			
-			Debug.Log ("End of path reached.");
+			//Debug.Log ("End of path reached.");
 			pathIsEnded = true;
 			return;
 		}
 		pathIsEnded = false;
 
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
 	
 		//Direction to the next waypoint
 		Vector3 dir = ( path.vectorPath[currentWaypoint] - transform.position ).normalized;
-        //Vector3 dir = new Vector3(-1, -1, 0);
 		dir *= speed * Time.fixedDeltaTime;
 
-        Debug.Log("Dir is: " + dir);
+        //Debug.Log("Dir is: " + dir);
 		
 		//Move the AI
 		rb.AddForce (dir, fMode);
