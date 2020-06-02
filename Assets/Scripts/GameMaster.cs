@@ -22,15 +22,29 @@ public class GameMaster : MonoBehaviour
     public Transform spawnPoint;
     public int spawnDelay = 2;
     public Transform spawnPrefab;
+    public string spawnSoundName;
 
     public CameraShake cameraShake;
 
     [SerializeField]
     private GameObject gameOverUI;
 
-    void Start() {
+    //cache
+    private AudioManager audioManager;
+
+    void Start() 
+    {
+
+
         if (cameraShake == null) {
             Debug.LogError("No Camera shake refrenced.");
+        }
+
+        //cache
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No Audiomanagr found in the sceen.");
         }
     }
 
@@ -42,7 +56,7 @@ public class GameMaster : MonoBehaviour
     }
     
     public void _RespawnPlayer() {
-        GetComponent<AudioSource>().Play();
+        audioManager.PlaySound(spawnSoundName);
         //yield return new WaitForSeconds(spawnDelay); //also must change method return type to IEnumerator if used
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation);
