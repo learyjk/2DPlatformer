@@ -44,7 +44,7 @@ public class GameMaster : MonoBehaviour
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
-            Debug.LogError("No Audiomanagr found in the sceen.");
+            Debug.LogError("No Audiomanager found in the sceen.");
         }
     }
 

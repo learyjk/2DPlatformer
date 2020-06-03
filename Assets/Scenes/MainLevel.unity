@@ -1929,7 +1929,6 @@ GameObject:
   - component: {fileID: 1320593278}
   - component: {fileID: 1320593280}
   - component: {fileID: 1320593281}
-  - component: {fileID: 1320593282}
   m_Layer: 0
   m_Name: _GM
   m_TagString: GM
@@ -2032,25 +2031,6 @@ MonoBehaviour:
   - {fileID: 830249663}
   - {fileID: 231897388}
   timeBetweenWaves: 5
---- !u!114 &1320593282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320593275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cbb7cde5adc45b68347739a48d275a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Respawn
-    clip: {fileID: 8300000, guid: 9093fd0e1832b47489ba45075ecac358, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0
-    randomPitch: 0
 --- !u!1 &1437923580
 GameObject:
   m_ObjectHideFlags: 0

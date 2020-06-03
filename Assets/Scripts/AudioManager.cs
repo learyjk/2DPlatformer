@@ -19,19 +19,27 @@ public class Sound {
     [Range(0f, 0.5f)]
     public float randomPitch = 0.1f;
 
+    public bool loop = false;
+
     private AudioSource source;
 
     public void SetSource(AudioSource _source)
     {
         source = _source;
         source.clip = clip;
+        source.loop = loop;
     }
 
     public void Play()
     {
         source.volume = volume * (1 + Random.Range(-randomVolume/2, randomVolume/2));
-        source.pitch = pitch * (1 + Random.Range(-randomPitch/2, randomPitch/2));;
+        source.pitch = pitch * (1 + Random.Range(-randomPitch/2, randomPitch/2));
         source.Play();
+    }
+
+    public void Stop()
+    {
+        source.Stop();
     }
 }
 
@@ -46,11 +54,16 @@ public class AudioManager : MonoBehaviour
     {
         if (instance != null) 
         {
-            Debug.LogError("More than one AudioManager in this scene.");
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
         }
         else
         {
+            //takes AudioManager into a new scene without destroying it.
             instance = this;
+            DontDestroyOnLoad(this);
         }
     }
 
@@ -62,7 +75,15 @@ public class AudioManager : MonoBehaviour
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
         }
-        PlaySound("Respawn");
+        PlaySound("Music");
+    }
+
+    void Update() {
+
+            // if (Time.time > 5f)
+            // {
+            //     StopSound("Music");
+            // }
     }
 
     public void PlaySound(string _name)
@@ -72,6 +93,20 @@ public class AudioManager : MonoBehaviour
             if (sounds[i].name == _name)
             {
                 sounds[i].Play();
+                return;
+            }
+        }
+        //no sound with _name
+        Debug.Log("AudioManager: No sound found with that name");
+    }
+
+    public void StopSound(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == _name)
+            {
+                sounds[i].Stop();
                 return;
             }
         }
